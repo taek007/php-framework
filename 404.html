@@ -1,0 +1,49 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>404-页面没有找到！</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css" >
+*{ margin: 0 ; padding: 0;}
+body{ background: #fff; font-family: "Microsoft Yahei","微软雅黑"; font-size: 12px;}
+.wd{ margin: 0 auto; margin-top: 10%; width: 850px; height: 438px;background:url(/public/img/404.png) no-repeat center right; position: relative; }
+.pos{ position: absolute; top: 160px;left: 0;}
+.title{ background:url(/public/img/alert.png) no-repeat 0 center; padding-left: 55px; height: 50px; line-height: 40px; color: #ff6600; font-size: 18px; }
+.note{ font-size: 12px; margin-bottom: 20px; color: #666;line-height: 25px; padding-left: 55px;}
+.jump{ color: #666; line-height: 32px; padding-left: 55px;}
+.jump a{ color: #cc6600; display: block; text-decoration: none;}
+.time{ color: #cc6600; display: inline-block; font-size: 16px; padding-right: 10px;}
+</style>
+</head>
+<body>
+<div class='wd'>
+    <div class="pos">
+        <div class='title'>抱歉，你访问的页面地址有误，或者该页面不存在</div>
+        <p class="note">
+            请检查输入的网址是否正确，或者联系客服：<br/>
+            0769-22234122（企业）按当地市话标准计费
+        </p>
+        <div class="jump"> 
+            <span class="time" id="time">5</span>秒之后页面自动跳转，你还可以：
+            <p>
+                <a href="/">(1) 返回首页</a>
+                <a href="javascript:" onclick="history.go(-1);">(2) 返回上一页</a>
+            </p>
+        </div>
+    </div>
+</div>
+<script>
+countDown(5,"/");
+function countDown(secs,surl){          
+    var jumpTo = document.getElementById('time');
+    jumpTo.innerHTML=secs; 
+    if(--secs>0){     
+        setTimeout("countDown("+secs+",'"+surl+"')",1000);     
+    }else{       
+        location.href=surl;     
+    }
+}
+</script>
+</body>
+</html>
